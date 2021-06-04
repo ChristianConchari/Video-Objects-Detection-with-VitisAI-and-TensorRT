@@ -4,11 +4,21 @@
 
 ---
 **authors:**  
+<div style = "fonr-size:15px">
 Cristian Conchari  
+</div>
+<div style = "fonr-size:15px">
 Franklin Ticona  
+</div>
+<div style = "fonr-size:15px">
 Hamed Quenta  
+</div>
+<div style = "fonr-size:15px">
 Sergio Fernandez  
-date: June 3th 2021
+</div>
+<div style = "fonr-size:15px">
+<b>date:</b> June 3th 2021
+</div>
 ---
   
 
