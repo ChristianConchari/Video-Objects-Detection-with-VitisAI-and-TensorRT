@@ -23,8 +23,9 @@ Sergio Fernandez
   
 
 <h2 style="background-color:tomato;font-size: 20px;">Introduction</h2>
-<!---TODO: Introduction (0 and 1) (strawberries and blueberries)-->
-<p></p>
+<p>To demonstrate the correct operation of the artificial intelligence model, two different datasets were used, which fulfill the task of solving two different problems. Initially, we have a fruit classifier which separates strawberries from blueberries, which can have an industrial application being that by recognizing and detecting these fruits, each fruit can be sent to its respective process. On the other hand, we implemented a dataset with zeros and ones, which fulfills the task of character recognition, an application widely used since the 70s, which today continues to improve and through this project we try to demonstrate the functionality of our model to fulfill this task satisfactorily.
+
+Translated with www.DeepL.com/Translator (free version)</p>
 
 <h2 style="background-color:tomato;font-size: 20px;">Dataset</h2>
 
