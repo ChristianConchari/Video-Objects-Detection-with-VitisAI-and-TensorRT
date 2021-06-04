@@ -23,7 +23,7 @@ Sergio Fernandez
   
 
 <h2 style="background-color:tomato;font-size: 20px;">Introduction</h2>
-<p>Since december 2019 the world went into a collapse due to a virus that affected the entire population. This virus started in Wuhan China, currently it is known as covid-19. The functionality of this project is to detect coronaviruses based on CT scan images to facilitate early detection of this virus and thus collaborate with the health of the general population, making use of artificial intelligence tools and algorithms.</p>
+<p>Since December 2019 the world went into a collapse due to a virus that affected the entire population. This virus started in Wuhan China, currently, it is known as covid-19. The functionality of this project is to detect coronavirus cases based on CT scan images to facilitate early detection of this virus and thus collaborate with the health of the general population, making use of artificial intelligence tools and algorithms.</p>
 
 <h2 style="background-color:tomato;font-size: 20px;">Dataset</h2>
 
