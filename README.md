@@ -1,4 +1,4 @@
-# **Covid-Detection-with-VitisAI-and-TensorRT**
+# **Fruits-and-Numbers-Classification-with-VitisAI-and-TensorRT**
 
 >Repository for the Embeeded Systems II.
 
@@ -120,7 +120,10 @@ MODEL COMPILED
 ~~~
 ### **Results**
 ~~~bash
-
+average FPS:  27.888862387921446
+Numbers CPU
+FPS: 93.08034481274083
+Numbers GPU
 ~~~
 
 

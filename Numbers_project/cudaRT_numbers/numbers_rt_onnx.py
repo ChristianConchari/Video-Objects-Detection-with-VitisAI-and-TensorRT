@@ -12,7 +12,7 @@ trt_runtime = trt.Runtime(TRT_LOGGER)
 
 
 
-def build_engine(onnx_path, shape = [1,200,250,3]):
+def build_engine(onnx_path, shape = [1,32,32,3]):
 
    """
    This is the function to create the TensorRT engine
@@ -70,7 +70,6 @@ def allocate_buffers(engine, batch_size, data_type):
    # Create a stream in which to copy inputs/outputs and run inference.
    stream = cuda.Stream()
    return h_input_1, d_input_1, h_output, d_output, stream
-
 def load_images_to_buffer(pics, pagelocked_buffer):
    preprocessed = np.asarray(pics).ravel()
    np.copyto(pagelocked_buffer, preprocessed)
@@ -114,14 +113,11 @@ def do_inference(engine, pics_1, h_input_1, d_input_1, h_output, d_output, strea
       #out = h_output
       return h_output
 
-engine=build_engine('/models/numbers_model.onnx', shape = [1,32,32,3])
+engine=build_engine('models/numbers_model.onnx', shape = [1,32,32,3])
 #save_engine(engine, 'own_model.plan')
 cap = cv2.VideoCapture('numbers_video.mp4')
 #cap = cv2.VideoCapture(0)
 ret, frame = cap.read()
-prev_img=frame
-prev_img_res=cv2.resize(prev_img,(32,32))
-prev_img_c=cv2.cvtColor(prev_img_res, cv2.COLOR_BGR2GRAY)
 counter=0
 acc=0.0
 start_time = time.time()
@@ -129,22 +125,40 @@ while(True):
 
    ret, frame = cap.read()
    curr_img_res=cv2.resize(frame,(32,32))
-
+   curr_res_norm = cv2.cvtColor(curr_img_res, cv2.COLOR_RGB2BGR)
+   curr_res_norm = np.expand_dims(curr_res_norm ,axis=0)/255.0
    h_input_1, d_input_1, h_output, d_output, stream = allocate_buffers(engine, 1, trt.float32)
 
-   out = do_inference(engine, curr_img_res, h_input_1, d_input_1, h_output, d_output, stream, 1, 32, 32)
+   out = do_inference(engine, curr_res_norm, h_input_1, d_input_1, h_output, d_output, stream, 1, 32,32)
    #acc=acc+(time.time()-start_time)
-   print('-'*30)
-   print('Inference: ',out)
-   print('='*30)
-   cv2.imshow("frame", curr_img_res)
+   print("="*30)
+   print(out)
+   if out[0] < 0.5:
+      print("Two",out)
+      cv2.putText(frame, 
+                'Two',
+                (30, 70), 
+                cv2.FONT_HERSHEY_SIMPLEX, 0.9, 
+                (255, 0, 0), 
+                2, 
+                cv2.LINE_AA)
+   else:
+      print("Zero",out)
+      cv2.putText(frame, 
+                'Zero',
+                (30, 70), 
+                cv2.FONT_HERSHEY_SIMPLEX, 0.9, 
+                (0, 0, 255), 
+                2, 
+                cv2.LINE_AA)
+   print("="*30)
+   cv2.imshow("frame", frame)
    cv2.waitKey(1)
    #prev_img_c=curr_img_c
    #acc=acc+(time.time()-start_time)
    #print(" FPS: ", 1.0/(time.time()-start_time))
    counter+=1
-   if counter>=885:
+   if counter>=1249:
       print('FPS:',counter/(time.time()-start_time))
-      
       break
 #print(out)

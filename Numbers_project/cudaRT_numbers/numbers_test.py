@@ -37,10 +37,24 @@ while(True):
 	#acc=acc+(time.time()-start_time)
 	if preds[0][0] < 0.5:
 		print(preds, 'Detected: 2'," FPS: ", 1.0/(time.time()-start_time))
+		cv2.putText(frame, 
+                'Two',
+                (30, 70), 
+                cv2.FONT_HERSHEY_SIMPLEX, 0.9, 
+                (255, 0, 0), 
+                2, 
+                cv2.LINE_AA)
 	else:
 		print(preds, 'Detected: 0'," FPS: ", 1.0/(time.time()-start_time))
-
-	cv2.imshow("frame", curr_img_res)
+		cv2.putText(frame, 
+                'Zero',
+                (30, 70), 
+                cv2.FONT_HERSHEY_SIMPLEX, 0.9, 
+                (0, 0, 255), 
+                2, 
+                cv2.LINE_AA)
+	
+	cv2.imshow("frame", frame)
 	cv2.waitKey(1)
 	acc=acc+1.0/(time.time()-start_time)
 	counter=counter+1
