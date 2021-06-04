@@ -23,7 +23,8 @@ Sergio Fernandez
   
 
 <h2 style="background-color:tomato;font-size: 20px;">Introduction</h2>
-<p>Since December 2019 the world went into a collapse due to a virus that affected the entire population. This virus started in Wuhan China, currently, it is known as covid-19. The functionality of this project is to detect coronavirus cases based on CT scan images to facilitate early detection of this virus and thus collaborate with the health of the general population, making use of artificial intelligence tools and algorithms.</p>
+<!---TODO: Introduction (0 and 1) (strawberries and blueberries)-->
+<p></p>
 
 <h2 style="background-color:tomato;font-size: 20px;">Dataset</h2>
 
@@ -48,4 +49,76 @@ Sergio Fernandez
 ![Docker](assets/docker.png)
 <p>Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly. With Docker, you can manage your infrastructure in the same ways you manage your applications.</p>
 
+## Numbers model
+### **Training**
+~~~bash
+Epoch 00015: LearningRateScheduler reducing learning rate to 0.0001.
+Epoch 15/15
+291/291 [==============================] - ETA: 0s - loss: 0.1125 - accuracy: 0.9971 
+Epoch 00015: val_accuracy did not improve from 0.99750
+291/291 [==============================] - 54s 186ms/step - loss: 0.1125 - accuracy: 0.9971 - val_loss: 0.1056 - val_accuracy: 0.9969
+~~~
+
+### **Quantize**
+~~~bash
+------------------------------------
+TensorFlow version :  2.3.0
+3.7.9 (default, Aug 31 2020, 12:42:55) 
+[GCC 7.3.0]
+------------------------------------
+Command line options:
+ --float_model  :  float_model/numbers_model.h5
+ --quant_model  :  quant_model/q_numbers_model.h5
+ --batchsize    :  60
+ --tfrec_dir    :  tfrecords
+ --evaluate     :  False
+------------------------------------
+
+[INFO] Start CrossLayerEqualization...
+10/10 [==============================] - 3s 324ms/step
+[INFO] CrossLayerEqualization Done.
+[INFO] Start Quantize Calibration...
+27/27 [==============================] - 6s 232ms/step
+[INFO] Quantize Calibration Done.
+[INFO] Start Generating Quantized Model...
+[INFO] Generating Quantized Model Done.
+Saved quantized model to quant_model/q_numbers_model.h5
+~~~
+
+### **Compile**
+~~~bash
+-----------------------------------------
+COMPILING MODEL FOR ZCU102..
+-----------------------------------------
+/opt/vitis_ai/conda/envs/vitis-ai-tensorflow2/lib/python3.7/site-packages/xnnc/translator/tensorflow_translator.py:1809: H5pyDeprecationWarning: dataset.value has been deprecated. Use dataset[()] instead.
+  value = param.get(group).get(ds).value
+[INFO] parse raw model     :100%|██████████| 71/71 [00:00<00:00, 17408.84it/s]               
+[INFO] infer shape (NHWC)  :100%|██████████| 109/109 [00:00<00:00, 35572.61it/s]             
+[INFO] generate xmodel     :100%|██████████| 109/109 [00:00<00:00, 4114.02it/s]              
+[INFO] Namespace(inputs_shape=None, layout='NHWC', model_files=['quant_model/q_numbers_model.h5'], model_type='tensorflow2', out_filename='compiled_model/customcnn_numbers_org.xmodel', proto=None)
+[INFO] tensorflow2 model: quant_model/q_numbers_model.h5
+[OPT] No optimization method available for xir-level optimization.
+[INFO] generate xmodel: /workspace/Vitis-Tutorials/Machine_Learning/Design_Tutorials/Numbers_project/vitis-numbers/files/compiled_model/customcnn_numbers_org.xmodel
+[UNILOG][INFO] The compiler log will be dumped at "/tmp/vitis-ai-user/log/xcompiler-20210604-012735-99"
+[UNILOG][INFO] Target architecture: DPUCZDX8G_ISA0_B4096_MAX_BG2
+[UNILOG][INFO] Compile mode: dpu
+[UNILOG][INFO] Debug mode: function
+[UNILOG][INFO] Target architecture: DPUCZDX8G_ISA0_B4096_MAX_BG2
+[UNILOG][INFO] Graph name: functional_1, with op num: 233
+[UNILOG][INFO] Begin to compile...
+[UNILOG][INFO] Total device subgraph number 3, DPU subgraph number 1
+[UNILOG][INFO] Compile done.
+[UNILOG][INFO] The meta json is saved to "/workspace/Vitis-Tutorials/Machine_Learning/Design_Tutorials/Numbers_project/vitis-numbers/files/compiled_model/meta.json"
+[UNILOG][INFO] The compiled xmodel is saved to "/workspace/Vitis-Tutorials/Machine_Learning/Design_Tutorials/Numbers_project/vitis-numbers/files/compiled_model/customcnn_numbers.xmodel"
+[UNILOG][INFO] The compiled xmodel's md5sum is 504761973848a4c8729dae40947d78ab, and been saved to "/workspace/Vitis-Tutorials/Machine_Learning/Design_Tutorials/Numbers_project/vitis-numbers/files/compiled_model/md5sum.txt"
+**************************************************
+* VITIS_AI Compilation - Xilinx Inc.
+**************************************************
+-----------------------------------------
+MODEL COMPILED
+-----------------------------------------
+~~~
+
+
 <h2 style="background-color:tomato;font-size: 15px;">Results</h2>
+<!---TODO: Result-->
