@@ -1,0 +1,24 @@
+/opt/vitis_ai/conda/envs/vitis-ai-tensorflow2/lib/python3.7/site-packages/xnnc/translator/tensorflow_translator.py:1809: H5pyDeprecationWarning: dataset.value has been deprecated. Use dataset[()] instead.
+  value = param.get(group).get(ds).value
+[INFO] parse raw model     :  0%|          | 0/71 [00:00<?, ?it/s]                           [INFO] parse raw model     :100%|██████████| 71/71 [00:00<00:00, 17408.84it/s]               
+[INFO] infer shape (NHWC)  :  0%|          | 0/109 [00:00<?, ?it/s]                          [INFO] infer shape (NHWC)  :100%|██████████| 109/109 [00:00<00:00, 35572.61it/s]             
+[INFO] generate xmodel     :  0%|          | 0/109 [00:00<?, ?it/s]                          [INFO] generate xmodel     :100%|██████████| 109/109 [00:00<00:00, 4114.02it/s]              
+[INFO] Namespace(inputs_shape=None, layout='NHWC', model_files=['quant_model/q_numbers_model.h5'], model_type='tensorflow2', out_filename='compiled_model/customcnn_numbers_org.xmodel', proto=None)
+[INFO] tensorflow2 model: quant_model/q_numbers_model.h5
+[OPT] No optimization method available for xir-level optimization.
+[INFO] generate xmodel: /workspace/Vitis-Tutorials/Machine_Learning/Design_Tutorials/Numbers_project/vitis-numbers/files/compiled_model/customcnn_numbers_org.xmodel
+[UNILOG][INFO] The compiler log will be dumped at "/tmp/vitis-ai-user/log/xcompiler-20210604-012735-99"
+[UNILOG][INFO] Target architecture: DPUCZDX8G_ISA0_B4096_MAX_BG2
+[UNILOG][INFO] Compile mode: dpu
+[UNILOG][INFO] Debug mode: function
+[UNILOG][INFO] Target architecture: DPUCZDX8G_ISA0_B4096_MAX_BG2
+[UNILOG][INFO] Graph name: functional_1, with op num: 233
+[UNILOG][INFO] Begin to compile...
+[UNILOG][INFO] Total device subgraph number 3, DPU subgraph number 1
+[UNILOG][INFO] Compile done.
+[UNILOG][INFO] The meta json is saved to "/workspace/Vitis-Tutorials/Machine_Learning/Design_Tutorials/Numbers_project/vitis-numbers/files/compiled_model/meta.json"
+[UNILOG][INFO] The compiled xmodel is saved to "/workspace/Vitis-Tutorials/Machine_Learning/Design_Tutorials/Numbers_project/vitis-numbers/files/compiled_model/customcnn_numbers.xmodel"
+[UNILOG][INFO] The compiled xmodel's md5sum is 504761973848a4c8729dae40947d78ab, and been saved to "/workspace/Vitis-Tutorials/Machine_Learning/Design_Tutorials/Numbers_project/vitis-numbers/files/compiled_model/md5sum.txt"
+**************************************************
+* VITIS_AI Compilation - Xilinx Inc.
+**************************************************

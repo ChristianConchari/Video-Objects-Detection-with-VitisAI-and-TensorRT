@@ -1,0 +1,19 @@
+
+-----------------------------------------
+DATASET PREPARATION STARTED..
+Command line options:
+ --dataset_dir  :  dataset
+ --tfrec_dir    :  tfrecords
+ --img_shard    :  1000
+Creating test TFRecord files...
+1 TFRecord files will be created.
+Last TFRecord file will have 400 images.
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  2.80it/s]100%|██████████| 1/1 [00:00<00:00,  2.80it/s]
+Creating training TFRecord files...
+2 TFRecord files will be created.
+Last TFRecord file will have 600 images.
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:00<00:00,  1.59it/s]100%|██████████| 2/2 [00:01<00:00,  2.01it/s]100%|██████████| 2/2 [00:01<00:00,  1.93it/s]
+
+DATASET PREPARATION COMPLETED
+----------------------------------------- 
+
