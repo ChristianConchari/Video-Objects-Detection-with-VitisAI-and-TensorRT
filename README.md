@@ -25,6 +25,7 @@ Sergio Fernandez
 <h2 style="background-color:tomato;font-size: 15px;">Introduction</h2>
 
 <h2 style="background-color:tomato;font-size: 15px;">Tools</h2>
+
 ### **Vitis - AI**
 ![Vitis AI](assets/Vitis-AI.png)
 <p>The Vitis™ AI development environment is Xilinx's development platform for AI inference on Xilinx hardware platforms, including both edge devices and Alveo™ cards. It consists of optimized IP, tools, libraries, models, and example designs.</p>
