@@ -23,19 +23,11 @@ Sergio Fernandez
   
 
 <h2 style="background-color:tomato;font-size: 20px;">Introduction</h2>
-<p></p>
+<p>Since december 2019 the world went into a collapse due to a virus that affected the entire population. This virus started in Wuhan China, currently it is known as covid-19. The functionality of this project is to detect coronaviruses based on CT scan images to facilitate early detection of this virus and thus collaborate with the health of the general population, making use of artificial intelligence tools and algorithms.</p>
 
 <h2 style="background-color:tomato;font-size: 20px;">Dataset</h2>
-<button style="background-color: tomato; /* Green */
-  border: none;
-  color: white;
-  margin: 10px 0;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;"
-  name="button" onclick="http://www.google.com">Dataset link</button>
+
+[Dataset link](https://www.kaggle.com/azaemon/preprocessed-ct-scans-for-covid19)
 <br>
 
 <h2 style="background-color:tomato;font-size: 20px;">Tools</h2>
